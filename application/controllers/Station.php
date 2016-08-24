@@ -14,4 +14,12 @@ class Station extends CI_Controller
         $content['stations'] = $this->station_model->get_all_stations();
         $this->template->load_template('stations/all', "All Stations", $content);
     }
+
+    public function station($name)
+    {
+
+        $content['station'] = $this->station_model->get_station_from_slug($name);
+        $this->template->load_template('stations/single', "HypeTrains - " . $content['station']->Name, $content);
+    }
+
 }
